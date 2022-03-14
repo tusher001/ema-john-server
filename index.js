@@ -10,6 +10,11 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const port = 5000;
+
+app.get('/', (req,res)=>{
+  res.send("Hello from DB it's working !!");
+})
+
 const uri = `mongodb+srv://${process.env.DB_User}:${process.env.DB_Password}@cluster0.aqab4.mongodb.net/${process.env.DB_Name}?retryWrites=true&w=majority`;
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
